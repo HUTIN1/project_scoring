@@ -1,0 +1,82 @@
+architecture behavioral of mux_8x1x1b is
+Begin 
+O<=	A WHEN (sel="000") ELSE
+	B WHEN (sel="001") ELSE
+	C WHEN (sel="010") ELSE
+	D WHEN (sel="011") ELSE
+	E WHEN (sel="100") ELSE
+	F WHEN (sel="101") ELSE
+	G WHEN (sel="110") ELSE
+	H;
+end behavioral;
+
+architecture behavioral of mux_8x1x4b is
+Begin
+WITH sel SELECT
+O<=	A WHEN "000" ,
+	B WHEN "001" ,
+	C WHEN "010" ,
+	D WHEN "011" ,
+	E WHEN "100" ,
+	F WHEN "101" ,
+	G WHEN "110" ,
+	H WHEN others;
+end behavioral;
+
+architecture behavioral of register_8b is
+signal Q_int : std_logic_vector(7 downto 0);
+Begin
+	process(clk,D)
+	begin 
+		if (rising_edge(clk)) then
+			Q_int<=D;
+	end process;
+	Q<=Q_int;
+end behavioral;
+
+architecture behavioral of Tregister_1b is
+signal Q_int : std_logic;
+Begin
+	process(clk,T)
+	begin
+		if(rising_edge(clk) and T='0') then
+			Q_int<=Q_int;
+		elif(rising_edge(clk) and T='1') then
+			Q_int<= not Q_int;
+	end process
+	Q<= Q_int;
+end behavioral
+
+architecture behavioral of transcoder_3v8 is
+Begin
+WITH A SELECT
+O<=	"11111110" WHEN "000",
+	"11111101" WHEN "001",
+	"11111011" WHEN "010",
+	"11110111" WHEN "011",
+	"11101111" WHEN "100",
+	"11011111" WHEN "101",
+	"10111111" WHEN "110",
+	"01111111" WHEN others;
+end behavioral;
+
+architecture behavioral of transcoder_7segs is
+Begin
+WITH A SELECT
+O <=	"1000000" WHEN "0000",
+	"1111001" WHEN "0001",
+	"0100100" WHEN "0010",
+	"0110000" WHEN "0011",
+	"0010001" WHEN "0100",
+	"0010010" WHEN "0101",
+	"0000010" WHEN "0110",
+	"1111000" WHEN "0111",
+	"0000000" WHEN "1000",
+	"0010000" WHEN "1001",
+	"0001000" WHEN "1010",
+	"0000011" WHEN "1011",
+	"1000110" WHEN "1100",
+	"0100001" WHEN "1101",
+	"0000110" WHEN "1110",
+	"0001110" WHEN others;
+end behavioral;

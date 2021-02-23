@@ -1,0 +1,40 @@
+Tregister_1b
+clk <='1' after 25ns, '0' after 50ns, '1' after 75ns, '0' after 100ns, '1' after 125ns, '0' after 150ns, '1' after 175ns, '0' after 200ns
+T <= "00000000" after 20ns, "00000001" after 70ns, "00000010" after 120ns, "00000011" after 175ns
+
+counter_3b
+clk <= "0" after 25ns, "1" after 50ns, "0" after 75ns, "1" after 100ns, "0" after 125ns, "1" after 150ns, "0" after 175ns, "1" after 200ns, "0" after 225ns, "1" after 250ns, "0" after 275ns
+CE <= "0" after 25ns, "1" after 200ns
+
+
+mux_8x1x1b
+sel <= "000", "001" after 100ns, "010" after 200ns, "011" after 300ns, "100" after 400ns, "101" after 500ns, "110" after 600ns, "111" after 700ns
+A <= '0', '1' after 50ns
+B <= '0', '1' after 150ns
+C <= '0', '1' after 250ns
+D <= '0', '1' after 350ns
+E <= '0', '1' after 450ns
+F <= '0', '1' after 550ns
+G <= '0', '1' after 650ns
+H <= '0', '1' after 750ns
+
+mux_8x1x4b
+sel <= "000", "001" after 100ns, "010" after 200ns, "011" after 300ns, "100" after 400ns, "101" after 500ns, "110" after 600ns, "111" after 700ns
+A <= "0000", "1111" after 50ns
+B <= "0001", "1110" after 150ns
+C <= "0010", "1101" after 250ns
+D <= "0011", "1100" after 350ns
+E <= "0100", "1011" after 450ns
+F <= "0101", "1010" after 550ns
+G <= "0110", "1001" after 650ns
+H <= "0111", "1000" after 750ns
+
+register_8b
+clk <= "0" after 25ns, "1" after 50ns, "0" after 75ns, "1" after 100ns, "0" after 125ns, "1" after 150ns, "0" after 175ns, "1" after 200ns, "0" after 225ns, "1" after 250ns, "0" after 275ns
+D <= "00000000" after 0ns, "11111111" after 45ns, "00010001" after 95ns, "11101110" after 145ns, "00100010" after 195ns, "11011101" after 245ns
+
+transcoder_3v8b
+A <= "000", "001" after 100ns, "010" after 200ns, "011" after 300ns, "100" after 400ns, "101" after 500ns, "110" after 600ns, "111" after 700ns
+
+transcoder_7segs
+A <= "0000", "0001" after 100ns, "0010" after 200ns, "0011" after 300ns, "0100" after 400ns, "0101" after 500ns, "0110" after 600ns, "0111" after 700ns, "1000" after 800ns, "1001" after 900ns, "1010" after 1000ns,"1011" after 1100ns,"1100" after 1200ns,"1101" after 1300ns,"1110" after 1400ns,"1111" after 1500ns;
